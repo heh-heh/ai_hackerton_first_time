@@ -2,6 +2,7 @@ import pandas as pd
 import random
 import os
 import numpy as np
+import time
 
 from sklearn.preprocessing import LabelEncoder, PolynomialFeatures
 from sklearn.linear_model import LinearRegression
@@ -12,16 +13,16 @@ def seed_everything(seed):
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
 
-seed_everything(42)
+# seed_everything(42)
+train = pd.read_csv('./csv/train.csv')
+test = pd.read_csv('./csv/test.csv')
 
-train = pd.read_csv('./train.csv')
-test = pd.read_csv('./test.csv')
 
 train.head()
 
 train_x = train.drop(columns=['id', 'target'])
 train_y = train['target']
-test_x = test.drop(columns=['id'])
+test_x = test.drop(columns=['id','target'])
 
 le = LabelEncoder()
 le = le.fit(train_x['snowing'])
@@ -37,20 +38,36 @@ print('Done.')
 LR = LinearRegression()
 print('Done.')
 
-poly = PolynomialFeatures(degree=6)
+
+first_time = time.time()
+poly = PolynomialFeatures(degree=3)
 train_x_poly = poly.fit_transform(train_x)
 
 LR.fit(train_x_poly, train_y)
+print('Done.')
+lost_time = time.time()
 
-
-preds = LR.predict(train_x_poly)
+test_x_poly = poly.fit_transform(test_x)
+preds = LR.predict(test_x_poly)
 print('Done.')
 
-submit = pd.read_csv('./sample_submission.csv')
 
-submit['target'] = preds
-submit.head()
 
-submit.to_csv('./submit.csv', index=False)
+submit = pd.read_csv('./csv/sample_submission.csv')
+submit2 = pd.read_csv('./csv/test2.csv')
 
+
+# submit['target'] = preds
+# submit.head()
+
+
+submit2['target'] = preds
+submit2.head()
+submit2.to_csv('./submit.csv', index=False)
+
+
+fainal = pd.read_csv('./submit.csv')
 print('결정계수', LR.score(train_x_poly, train_y))
+print('ai 학습 시간', lost_time - first_time)
+# print('가중치 : ', LR.coef_)
+print('y절편 : ', LR.intercept_)
