@@ -37,7 +37,9 @@ test = pd.read_csv('./main_heckrton/data/test.csv')
 
 모듈과 데이터를 불러 왔으니 데이터를 가공 해봅시다.
 데이터 상관관계를 먼져 보겠습니다.
+
 ![이미지 설명](https://github.com/heh-heh/ai_hackerton_first_time/blob/main/Untitled.png)
+
 
 비교적 발전량과 관계가 없는 강설량, 강수량, 구름_밀집도, 풍향 을 x_data 와 test_x 에서 없애도록 하겠습니다.
 ```py
