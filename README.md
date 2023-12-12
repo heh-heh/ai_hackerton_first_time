@@ -5,6 +5,7 @@
 -----------
 >data
 >>학습데이터와 테스트 데이터 백업
+
 >src
 >>main.py : 메인 소스
 >>sample_submission.csv : 결과 예측후 저장할 형식
