@@ -49,6 +49,7 @@ y_data = train['풍력_발전량']
 test_x = test.drop(['ID','날씨_주요_요소','날씨_상세_설명','강설량','강수량','구름_밀집도','풍향'],axis=1)
 ```
 
+---------------------
 다항 연산을 위해 다항으로 변환 & 테스트 데이터와 학습데이터 분리
 ```py
 poly = PolynomialFeatures(degree=4)
@@ -60,7 +61,7 @@ X_train, X_test, y_train, y_test = train_test_split(x_data, y_data,test_size = 0
 
 모델 정의 + 모델 학습
 ```py
-model = LinearRegression(n_jobs=-1) 
+model = LinearRegression(n_jobs=-1) ##모든 cpu 코어 사용을 위해 n_job 를 -1로 지정
 
 model.fit(X_train, y_train)
 ```
