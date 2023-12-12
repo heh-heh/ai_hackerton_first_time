@@ -8,9 +8,13 @@
 
 >src
 >>main.py : 메인 소스
+>>
 >>sample_submission.csv : 결과 예측후 저장할 형식
+>>
 >>test.csv : 결과 예측 할 파일
+>>
 >>trin.csv : 학습용 파일
+>>
 
 소스 설명
 --------------
