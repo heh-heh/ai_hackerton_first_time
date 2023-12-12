@@ -18,17 +18,15 @@
 
 소스 설명
 --------------
-필요한 모듈 불러오기
+
+머신러닝을 위해 제일 먼제 필요한 모듈부터 불러 오겠습니다.
 ```py
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import pandas as pd ##데이터 로드와 처리를 위한 pandas
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split ##데이터 셋을 분리해줌
 
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error
+from sklearn.preprocessing import PolynomialFeatures ##다항 연산을 위해 다항으로 변환 시켜줄 친구
+from sklearn.linear_model import LinearRegression ##머신 러닝 모델
 ```
 
 pandas 를 사용해 필요한 파일 불러오기
@@ -36,6 +34,10 @@ pandas 를 사용해 필요한 파일 불러오기
 train = pd.read_csv('./main_heckrton/data/train.csv')
 test = pd.read_csv('./main_heckrton/data/test.csv')
 ```
+
+모듈과 데이터를 불러 왔으니 데이터를 가공 해봅시다.
+
+
 
 테스트 데이터와 학습 데이터 불필요한 요소 제거
 ```py
