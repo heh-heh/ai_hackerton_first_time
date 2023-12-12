@@ -1,5 +1,11 @@
-# ai_hackerton_first_time
-연암공대 풍력발전량 예측 해커톤 참가하여 작성한 소스
+연암공대 풍력발전량 예측 ai해커톤
+==============
+연암공대에서 주최하고 데이콘이라는 플랫폼에서 진행한 연암공대 재학생, 고등학생 대상으로 진행된 ai해커톤
+
+
+-----------
+![python](https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white)
+
 
 파일구조
 -----------
